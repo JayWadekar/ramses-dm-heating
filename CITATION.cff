@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this RAMSES patch, please cite Mintz et al. 2026 (in prep.)."
+title: "RAMSES dark matter heating patch"
+authors:
+  - family-names: "Wadekar"
+    given-names: "Jay"
+  - family-names: "Mintz"
+    given-names: "Abby"
+repository-code: "https://github.com/JayWadekar/ramses-dm-heating"
+date-released: "2026-06-20"

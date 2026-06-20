@@ -1,69 +1,52 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
+# Fortran build products
 *.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-*.so.*
-
-
-# Fortran module files
 *.mod
 *.smod
-
-# Compiled Static libraries
-*.lai
-*.la
 *.a
-*.lib
-
-# Executables
+*.so
+*.dylib
 *.exe
 *.out
-*.app
+*.x
 
-# Build directories
-build/
-Build/
-build-*/
+# RAMSES executables and generated outputs
+ramses*
+output_*/
+restart_*/
+movie*/
+sink_*/
+part_*/
+amr_*/
+hydro_*/
+grav_*/
+poisson_*/
+info_*.txt
+timer_*.txt
+compilation.txt
+makefile.txt
+patches.txt
 
-# CMake generated files
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-install_manifest.txt
-compile_commands.json
+# Test run directories
+tests/run_*/
 
-# Temporary files
-*.tmp
+# Logs and temporary files
 *.log
+*.err
+*.tmp
 *.bak
 *.swp
+*~
+core
+core.*
 
-# vcpkg
-vcpkg_installed/
+# Python/cache artifacts
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
 
-# debug information files
-*.dwo
-
-# test output & cache
-Testing/
-.cache/
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
