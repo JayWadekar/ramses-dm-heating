@@ -31,6 +31,30 @@ The patch overrides RAMSES internals including `amr_step.f90`, `rho_fine.f90`,
 `poisson_commons.f90`, and `init_poisson.f90`. If you use a substantially
 different RAMSES version, review these files against your local source tree.
 
+### Custom RAMSES Patches and DICE Initial Conditions
+
+The heating source is intended to be general for RAMSES simulations with
+particle dark matter. It uses RAMSES particle families and deposits heat from
+particles satisfying `is_DM(typep)`.
+
+This is compatible with the RAMSES DICE initialization patch: in the DICE
+Gadget reader, halo particles are assigned `FAM_DM`, while stellar particle
+types are assigned `FAM_STAR`. Those stellar particles are therefore not counted
+as dark matter heating sources.
+
+One practical caveat is that RAMSES `PATCH=...` selects one patch directory via
+the build `VPATH`; it does not compose multiple patch directories automatically.
+If your simulation already uses another RAMSES patch, such as `patch/init/dice`,
+merge this repository's changes into that patch directory. The files that
+usually need attention are:
+
+- `amr_step.f90`: add the `dm_heating_fine(ilevel)` call and include
+  `dm_heating_fine.f90`.
+- `poisson_commons.f90`: add the `rho_dm` array.
+- `init_poisson.f90`: allocate and initialize `rho_dm`.
+- `rho_fine.f90`: deposit only `FAM_DM` particles into `rho_dm`.
+- `dm_heating_fine.f90`: add this new source file to the patch directory.
+
 ## Build
 
 From your RAMSES `bin/` directory:
