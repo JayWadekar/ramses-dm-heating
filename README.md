@@ -21,6 +21,8 @@ not counted as dark matter for the heating term.
 - `patch/`: RAMSES source overrides. Use this directory as the RAMSES `PATCH`.
 - `tests/`: a small particle-based smoke test that verifies the heating path is
   active for actual dark matter particles.
+- `examples/wlm_dice/`: reference DICE input files for the WLM-like isolated
+  dwarf initial conditions used in the companion paper.
 
 ## Compatibility
 
@@ -79,6 +81,21 @@ make NDIM=3 SOLVER=hydro MPI=0 EXEC=ramses_dmheat \
 
 The paper draft considers runs with `Gamma_heat = 1e-27, 1e-26, 1e-25 s^-1`
 and a control run without this patch.
+
+## Reference DICE Initial Conditions
+
+The `examples/wlm_dice/` directory contains the DICE driver file and galaxy
+parameter file used as a reference for the WLM-like isolated dwarf setup:
+
+- `WLM.dice`: top-level DICE configuration, including the output format and
+  galaxy parameter file.
+- `WLM_dice.params`: component parameters for the dark matter halo, stellar
+  disk, and gas disk.
+
+These files are included to help users reproduce or adapt the paper's isolated
+dwarf setup. They are not required to use the heating patch. If your local DICE
+or RAMSES setup differs, treat these files as a starting point and check the
+simulation parameter choices against the paper text.
 
 ## Smoke Test
 
